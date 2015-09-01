@@ -1,23 +1,26 @@
 @sample1
 Feature: SampleTest
+
+@Sanity
 Scenario: SampleRun
 Given Test "testScenario"
 When I start CukeTest "testName"
 Then I report "testStatus"
 
-
+@Sanity
 Scenario: SampleRun2
 Given Test "testScenario2"
 When I start CukeTest "testName2"
 Then I report "testStatus2"
 
-
+@Sanity
 Scenario: SampleRun3
 Given Test : "|Sanity| |Regression| |Stress|"
 When I start CukeTest "testName3"
 Then I report "testStatus3"
 
 
+@Regression
 Scenario Outline: Add invalid bank account displays inline errors
   Given _cuke I follow "Add Bank Account"
   When _cuke I fill in "<field>" with "<value>"
