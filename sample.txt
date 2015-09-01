@@ -1,0 +1,96 @@
+
+
+
+
+
+
+
+
+@RunWith(Cucumber.class)
+@Cucumber.Options(
+       // format = {"pretty"}
+
+        //glue = {"com.lebara.stepdefs","com.lebara.framework.main", "com.lebara.testrunner"},
+        glue =   {"src.test.resources"},
+        features = "C:/Cucumber/src/test/resources",
+          //  features = "classpath:cucumber",
+        //features = "C:\\Cucumber\\src\\test\\resources",
+        format = {"pretty", "html:target/cucumber-html-report", "json-pretty:target/cucumber-report.json"},
+        tags = {"@sample"}
+)
+public class CukeTest {
+
+    CukeExe cukeExe = new CukeExe();
+
+
+}
+
+
+
+public class CukeExe {
+
+    @Given("aaa")
+    public void testCuke1() {System.out.println("aaa");}
+
+    @When("bbb")
+    public void testCuke2() {System.out.println("bbb");}
+
+    @Then("ccc")
+    public void testCuke3() {System.out.println("ccc");}
+}
+
+
+
+
+@sample
+Feature: SampleTest
+Scenario: SampleRun
+Given Test |testScenario|
+When I start CukeTest |testName|
+Then I report |testStatus|
+
+
+
+
+
+
+
+
+
+"C:\Program Files\Java\jdk1.7.0_45\bin\java" -ea -Didea.launcher.port=7535 "-Didea.launcher.bin.path=C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.6\bin" -Dfile.encoding=UTF-8 -classpath "C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.6\lib\idea_rt.jar;C:\Program Files (x86)\JetBrains\IntelliJ IDEA Community Edition 12.1.6\plugins\junit\lib\junit-rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\deploy.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\javaws.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jce.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jfxrt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\management-agent.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\plugin.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\resources.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\rt.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\access-bridge-64.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\dnsns.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\jaccess.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\localedata.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunec.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunjce_provider.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\sunmscapi.jar;C:\Program Files\Java\jdk1.7.0_45\jre\lib\ext\zipfs.jar;C:\Cucumber\target\test-classes;C:\Users\Igor\.m2\repository\org\slf4j\slf4j-log4j12\1.7.0\slf4j-log4j12-1.7.0.jar;C:\Users\Igor\.m2\repository\org\slf4j\slf4j-api\1.7.0\slf4j-api-1.7.0.jar;C:\Users\Igor\.m2\repository\log4j\log4j\1.2.14\log4j-1.2.14.jar;C:\Users\Igor\.m2\repository\org\slf4j\jcl-over-slf4j\1.7.0\jcl-over-slf4j-1.7.0.jar;C:\Users\Igor\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Igor\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Igor\.m2\repository\info\cukes\cucumber-java\1.0.14\cucumber-java-1.0.14.jar;C:\Users\Igor\.m2\repository\info\cukes\cucumber-core\1.0.14\cucumber-core-1.0.14.jar;C:\Users\Igor\.m2\repository\info\cukes\cucumber-junit\1.0.14\cucumber-junit-1.0.14.jar" com.intellij.rt.execution.application.AppMain com.intellij.rt.execution.junit.JUnitStarter -ideVersion5 CukeTest
+Test '.Scenario: SampleRun  .Given Test |testScenario|   ' ignored
+Test '.Scenario: SampleRun  .When I start CukeTest |testName|    ' ignored
+    When I start CukeTest |testName|
+Test '.Scenario: SampleRun  .Then I report |testStatus|     ' ignored
+
+  Scenario: SampleRun                # cuke.feature:3
+    Given Test |testScenario|
+    When I start CukeTest |testName|
+Test '.Feature: SampleTest .Scenario: SampleRun  ' ignored
+@sample
+Feature: SampleTest
+    Then I report |testStatus|
+
+
+You can implement missing steps with the snippets below:
+
+@Given("^Test |testScenario|$")
+public void Test_testScenario() throws Throwable {
+    // Express the Regexp above with the code you wish you had
+    throw new PendingException();
+}
+
+@When("^I start CukeTest |testName|$")
+public void I_start_CukeTest_testName() throws Throwable {
+    // Express the Regexp above with the code you wish you had
+    throw new PendingException();
+}
+
+@Then("^I report |testStatus|$")
+public void I_report_testStatus() throws Throwable {
+    // Express the Regexp above with the code you wish you had
+    throw new PendingException();
+}
+
+
+Process finished with exit code 0
