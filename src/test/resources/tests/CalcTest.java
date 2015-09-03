@@ -16,7 +16,7 @@ import steps.CalcSteps;
 @RunWith(Cucumber.class)
 @Cucumber.Options(
         features = {"classpath:features/calc.feature"},         //features/calc.feature
-        format = {"pretty", "html:target/cucumber-html-report"} ,glue =   {"infra,steps"}
+        format = {"pretty", "html:target/cucumber-html-report"} ,glue =   {"infra","steps"}
 
 
 )

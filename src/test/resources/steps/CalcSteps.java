@@ -9,18 +9,20 @@ package steps;
  */
 
 import cucumber.annotation.After;
-import cucumber.annotation.Before;
 import cucumber.annotation.en.Given;
 import cucumber.annotation.en.Then;
 import cucumber.annotation.en.When;
-//import gherkin.formatter.model.Scenario;
-
-import gherkin.formatter.model.Scenario;
 import infra.Calc;
+import net.masterthought.cucumber.ReportBuilder;
+import org.junit.AfterClass;
 
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+
+//import gherkin.formatter.model.Scenario;
 
 public class CalcSteps {
     private Calc calc;
@@ -59,6 +61,51 @@ public class CalcSteps {
 
 
     }*/
+
+   /* @AfterClass
+    public void after(){
+        try {
+            CucumberResultsOverview results = new CucumberResultsOverview();
+            results.setOutputDirectory("target");
+            results.setOutputName("cucumber-results");
+            results.setSourceFile(".target/cucumber-html-report/report.json");
+            results.executeFeaturesOverviewReport();
+        } catch (Exception e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }*/
+
+
+    @After
+    public void after(){
+        try {
+            File reportOutputDirectory = new File("target");
+            List<String> list = new ArrayList<String>();
+            list.add("cucumber-report.json");
+            list.add("cucumber-report2.json");
+
+            String pluginUrlPath = "";
+            String buildNumber = "1";
+            String buildProject = "cucumber-jvm";
+            boolean skippedFails = true;
+            boolean pendingFails = true;
+            boolean undefinedFails = true;
+            boolean missingFails = true;
+            boolean flashCharts = true;
+            boolean runWithJenkins = false;
+            boolean artifactsEnabled = false;
+            String artifactConfig = "";
+            boolean highCharts = false;
+            boolean parallelTesting = false;
+
+            ReportBuilder reportBuilder = new ReportBuilder(list, reportOutputDirectory, pluginUrlPath, buildNumber,
+                    buildProject, skippedFails, pendingFails, undefinedFails, missingFails, flashCharts, runWithJenkins, artifactsEnabled,
+                    artifactConfig, highCharts, parallelTesting);
+            reportBuilder.generateReports();
+        } catch (Exception e) {
+            e.printStackTrace();  //To change body of catch statement use File | Settings | File Templates.
+        }
+    }
 
     @Given("^the previous entries:$")
     public void thePreviousEntries(List<Entry> entries) {
