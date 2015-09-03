@@ -20,7 +20,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.Assert.assertEquals;
+import static org.junit.Assert.assertEquals;
 
 //import gherkin.formatter.model.Scenario;
 
@@ -81,7 +81,7 @@ public class CalcSteps {
         try {
             File reportOutputDirectory = new File("target");
             List<String> list = new ArrayList<String>();
-            list.add("cucumber-report.json");
+            list.add("cucumber-report1.json");
             list.add("cucumber-report2.json");
 
             String pluginUrlPath = "";
