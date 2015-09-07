@@ -32,7 +32,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 		</resource>
 
 		<resource>
-			<directory>src/main/resources</directory>
+			<directory>src/main/resources/tests</directory>
 		</resource>
 
 	</resources>
@@ -76,6 +76,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
                 </configuration>
             </execution>
         </executions>
+
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <configuration>
+                <includes>
+                    <include>**/*Test.java</include>
+                </includes>
+                <!--testFailureIgnore>true</testFailureIgnore-->
+            </configuration>
+        </plugin>
+
 
     </plugin>
 
